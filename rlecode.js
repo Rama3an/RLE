@@ -62,11 +62,11 @@ fs.readFile(arg[2], (err, data) => {
             decodeText += codeText[i];
             i++;
         }
-        if ((codeText[i] == String.fromCharCode(35)) && (codeText[i + 1] != String.fromCharCode(35)))
+        if ((codeText[i] == String.fromCharCode(35)) && (codeText[i + 2] != String.fromCharCode(35)))
             for (j = 0; j < codeText[i + 1].charCodeAt(0) + 4; j++)
                 decodeText += codeText[i + 2];
             
-        if ((codeText[i] == String.fromCharCode(35)) && (codeText[i + 1] == String.fromCharCode(35)))
+        if ((codeText[i] == String.fromCharCode(35)) && (codeText[i + 2] == String.fromCharCode(35)))
             for (j = 0; j < codeText[i + 1].charCodeAt(0); j++)
                 decodeText += codeText[i + 2];
             
