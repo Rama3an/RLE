@@ -21,31 +21,26 @@ fs.readFile(arg[2], (err, data) => {
                     n -= 259;
                     codeText += String.fromCharCode(35) + String.fromCharCode(255) + inText.charAt(i);
                 }
-                if (n >= 4) {
+                if (n >= 4) 
                     codeText += String.fromCharCode(35) + String.fromCharCode(n - 4) + inText.charAt(i);
-                }
                 if (n < 4) {
-                        for(let x = 0; x < n; x++){
+                        for(let x = 0; x < n; x++)
                             codeText += inText.charAt(i);    
-                        }
-                    }
-                }
+                }  
+                    
+            }
                 
             if (inText.charAt(i) == String.fromCharCode(35)){
                 while (n > 255) { 
                     n -= 255;
                     codeText += String.fromCharCode(35) + String.fromCharCode(255) + inText.charAt(i);
                 }
-                if (n >= 4) {
+                if (n <= 255) {
                     codeText += String.fromCharCode(35) + String.fromCharCode(n) + inText.charAt(i);
                 }
-                if (n < 4) {
-                    for (let x = 0; x < n; x++){
-                        codeText += inText.charAt(i);    
-                    }
-                }
             }
-                n = 1;    
+            
+            n = 1;    
         }    
 
     fs.writeFile(arg[3], codeText, (err) => {
